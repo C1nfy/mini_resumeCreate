@@ -1,0 +1,230 @@
+<view class="container">
+  <!-- 配色方案 -->
+  <view class="form-card">
+    <view class="card-title">🎨 配色方案</view>
+    <view class="color-grid">
+      <view class="color-item">
+        <text class="label">主色调</text>
+        <view class="color-picker">
+          <view class="color-preview" style="background-color: {{colors.primary}};" data-key="primary" bindtap="showColorPicker"></view>
+          <input type="text" value="{{colors.primary}}" data-key="primary" bindinput="onColorChange" placeholder="#607052" />
+        </view>
+      </view>
+      <view class="color-item">
+        <text class="label">辅助色</text>
+        <view class="color-picker">
+          <view class="color-preview" style="background-color: {{colors.secondary}};" data-key="secondary" bindtap="showColorPicker"></view>
+          <input type="text" value="{{colors.secondary}}" data-key="secondary" bindinput="onColorChange" placeholder="#A9B488" />
+        </view>
+      </view>
+      <view class="color-item">
+        <text class="label">背景色</text>
+        <view class="color-picker">
+          <view class="color-preview" style="background-color: {{colors.background}};" data-key="background" bindtap="showColorPicker"></view>
+          <input type="text" value="{{colors.background}}" data-key="background" bindinput="onColorChange" placeholder="#FEFAE0" />
+        </view>
+      </view>
+      <view class="color-item">
+        <text class="label">强调色</text>
+        <view class="color-picker">
+          <view class="color-preview" style="background-color: {{colors.accent}};" data-key="accent" bindtap="showColorPicker"></view>
+          <input type="text" value="{{colors.accent}}" data-key="accent" bindinput="onColorChange" placeholder="#B99471" />
+        </view>
+      </view>
+    </view>
+
+    <!-- 预设配色方案 -->
+    <view class="preset-colors">
+      <text class="preset-title">快速配色:</text>
+      <view class="preset-list">
+        <view class="preset-item" bindtap="applyPreset" data-preset="morandi">
+          <view class="preset-dot" style="background: #607052;"></view>
+          <text>莫兰迪</text>
+        </view>
+        <view class="preset-item" bindtap="applyPreset" data-preset="blue">
+          <view class="preset-dot" style="background: #2C5F8D;"></view>
+          <text>商务蓝</text>
+        </view>
+        <view class="preset-item" bindtap="applyPreset" data-preset="purple">
+          <view class="preset-dot" style="background: #6B4C9A;"></view>
+          <text>优雅紫</text>
+        </view>
+        <view class="preset-item" bindtap="applyPreset" data-preset="orange">
+          <view class="preset-dot" style="background: #D97642;"></view>
+          <text>活力橙</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="form-card">
+    <view class="card-title">👤 基本信息</view>
+    <view class="form-group">
+      <text class="label">姓名</text>
+      <input type="text" value="{{basic.name}}" data-key="name" bindinput="onBasicChange" placeholder="请输入姓名" />
+    </view>
+    <view class="form-group">
+      <text class="label">职位</text>
+      <input type="text" value="{{basic.position}}" data-key="position" bindinput="onBasicChange" placeholder="请输入职位" />
+    </view>
+    <view class="form-group">
+      <text class="label">电话</text>
+      <input type="text" value="{{basic.phone}}" data-key="phone" bindinput="onBasicChange" placeholder="请输入电话" />
+    </view>
+    <view class="form-group">
+      <text class="label">邮箱</text>
+      <input type="text" value="{{basic.email}}" data-key="email" bindinput="onBasicChange" placeholder="请输入邮箱" />
+    </view>
+    <view class="form-group">
+      <text class="label">工作年限</text>
+      <input type="text" value="{{basic.workYears}}" data-key="workYears" bindinput="onBasicChange" placeholder="如: 5年" />
+    </view>
+    <view class="form-group">
+      <text class="label">学历</text>
+      <input type="text" value="{{basic.education}}" data-key="education" bindinput="onBasicChange" placeholder="如: 本科" />
+    </view>
+  </view>
+
+  <!-- 核心技能 -->
+  <view class="form-card">
+    <view class="card-title">💪 核心技能</view>
+    <view wx:for="{{skills}}" wx:key="id" class="dynamic-item">
+      <view class="item-header">
+        <text>技能类别 {{index + 1}}</text>
+        <button size="mini" type="warn" data-index="{{index}}" bindtap="removeSkill">删除</button>
+      </view>
+      <view class="form-group">
+        <text class="label">类别名称</text>
+        <input value="{{item.category}}" data-index="{{index}}" bindinput="onSkillCategoryChange" placeholder="如: 测试专项能力" />
+      </view>
+      <view wx:for="{{item.skills}}" wx:for-item="skill" wx:for-index="skillIdx" wx:key="skillIdx" class="skill-item">
+        <input value="{{skill.name}}" data-cat-index="{{index}}" data-skill-index="{{skillIdx}}" data-field="name" bindinput="onSkillItemChange" placeholder="技能名称" class="skill-name" />
+        <input value="{{skill.desc}}" data-cat-index="{{index}}" data-skill-index="{{skillIdx}}" data-field="desc" bindinput="onSkillItemChange" placeholder="技能描述" class="skill-desc" />
+        <button size="mini" type="warn" data-cat-index="{{index}}" data-skill-index="{{skillIdx}}" bindtap="removeSkillItem">删</button>
+      </view>
+      <button size="mini" type="primary" data-index="{{index}}" bindtap="addSkillItem">+ 添加技能项</button>
+    </view>
+    <button class="btn-add" bindtap="addSkill">+ 添加技能类别</button>
+  </view>
+
+  <!-- 工作经历 -->
+  <view class="form-card">
+    <view class="card-title">💼 工作经历</view>
+    <view wx:for="{{experiences}}" wx:key="id" class="dynamic-item">
+      <view class="item-header">
+        <text>经历 {{index + 1}}</text>
+        <button size="mini" type="warn" data-index="{{index}}" bindtap="removeExperience">删除</button>
+      </view>
+      <view class="form-group">
+        <text class="label">公司名称</text>
+        <input value="{{item.company}}" data-index="{{index}}" data-field="company" bindinput="onExpChange" placeholder="公司名称" />
+      </view>
+      <view class="form-group">
+        <text class="label">职位</text>
+        <input value="{{item.position}}" data-index="{{index}}" data-field="position" bindinput="onExpChange" placeholder="职位" />
+      </view>
+      <view class="form-group">
+        <text class="label">在职时间</text>
+        <input value="{{item.duration}}" data-index="{{index}}" data-field="duration" bindinput="onExpChange" placeholder="2024.01 - 2025.01" />
+      </view>
+
+      <!-- 项目列表 -->
+      <view class="project-section">
+        <text class="label">项目列表</text>
+        <view wx:for="{{item.projects}}" wx:for-item="proj" wx:for-index="projIdx" wx:key="projIdx" class="project-item">
+          <view class="item-header">
+            <text>项目 {{projIdx + 1}}</text>
+            <button size="mini" type="warn" data-exp-index="{{index}}" data-proj-index="{{projIdx}}" bindtap="removeProject">删除</button>
+          </view>
+          <view class="form-group">
+            <text class="label">项目名称</text>
+            <input value="{{proj.name}}" data-exp-index="{{index}}" data-proj-index="{{projIdx}}" data-field="name" bindinput="onProjectChange" placeholder="项目名称" />
+          </view>
+          <view class="form-group">
+            <text class="label">项目类型</text>
+            <input value="{{proj.type}}" data-exp-index="{{index}}" data-proj-index="{{projIdx}}" data-field="type" bindinput="onProjectChange" placeholder="C/S 或 B/S" />
+          </view>
+          <view class="form-group">
+            <text class="label">负责业务</text>
+            <textarea value="{{proj.business}}" data-exp-index="{{index}}" data-proj-index="{{projIdx}}" data-field="business" bindinput="onProjectChange" placeholder="负责的业务描述" maxlength="500"></textarea>
+          </view>
+
+          <!-- 工作职责 -->
+          <view class="duty-section">
+            <text class="label">工作职责</text>
+            <view wx:for="{{proj.duties}}" wx:for-item="duty" wx:for-index="dutyIdx" wx:key="dutyIdx" class="duty-item">
+              <input value="{{duty}}" data-exp-index="{{index}}" data-proj-index="{{projIdx}}" data-duty-index="{{dutyIdx}}" bindinput="onDutyChange" placeholder="输入一条工作职责" />
+              <button size="mini" type="warn" data-exp-index="{{index}}" data-proj-index="{{projIdx}}" data-duty-index="{{dutyIdx}}" bindtap="removeDuty">删</button>
+            </view>
+            <button size="mini" type="default" data-exp-index="{{index}}" data-proj-index="{{projIdx}}" bindtap="addDuty">+ 添加职责</button>
+          </view>
+
+          <!-- 项目成果 -->
+          <view class="form-group">
+            <text class="label">项目成果</text>
+            <textarea value="{{proj.achievement}}" data-exp-index="{{index}}" data-proj-index="{{projIdx}}" data-field="achievement" bindinput="onProjectChange" placeholder="描述项目取得的成果" maxlength="500"></textarea>
+          </view>
+        </view>
+        <button size="mini" type="default" data-exp-index="{{index}}" bindtap="addProject">+ 添加项目</button>
+      </view>
+    </view>
+    <button class="btn-add" bindtap="addExperience">+ 添加工作经历</button>
+  </view>
+
+  <!-- 教育背景 -->
+  <view class="form-card">
+    <view class="card-title">🎓 教育背景</view>
+    <view class="form-group">
+      <text class="label">学校</text>
+      <input value="{{education.school}}" data-key="school" bindinput="onEducationChange" placeholder="学校名称" />
+    </view>
+    <view class="form-group">
+      <text class="label">学历</text>
+      <input value="{{education.degree}}" data-key="degree" bindinput="onEducationChange" placeholder="本科/硕士" />
+    </view>
+    <view class="form-group">
+      <text class="label">时间</text>
+      <input value="{{education.time}}" data-key="time" bindinput="onEducationChange" placeholder="2016.09 - 2020.06" />
+    </view>
+  </view>
+
+  <!-- 专业证书 -->
+  <view class="form-card">
+    <view class="card-title">📜 专业证书</view>
+    <view class="form-group">
+      <textarea value="{{certificates}}" bindinput="onCertificatesChange" placeholder="用逗号或顿号分隔多个证书,如: RHCE、PMP、人力资源认证" maxlength="200"></textarea>
+    </view>
+  </view>
+
+  <!-- 个人评价 -->
+  <view class="form-card">
+    <view class="card-title">✨ 个人评价</view>
+    <view wx:for="{{summaries}}" wx:key="id" class="dynamic-item">
+      <view class="item-header">
+        <text>评价 {{index + 1}}</text>
+        <button size="mini" type="warn" data-index="{{index}}" bindtap="removeSummary">删除</button>
+      </view>
+      <view class="form-group">
+        <text class="label">标题</text>
+        <input value="{{item.title}}" data-index="{{index}}" data-field="title" bindinput="onSummaryChange" placeholder="如: 全链路质量守护者" />
+      </view>
+      <view class="form-group">
+        <text class="label">内容</text>
+        <textarea value="{{item.content}}" data-index="{{index}}" data-field="content" bindinput="onSummaryChange" placeholder="描述你的优势和特点" maxlength="300"></textarea>
+      </view>
+    </view>
+    <button class="btn-add" bindtap="addSummary">+ 添加个人评价</button>
+  </view>
+<!-- 协议弹窗 -->
+    <agreement-dialog show="{{showAgreement}}" bind:agree="onAgreeAgreement"></agreement-dialog>
+  <!-- 底部操作按钮 -->
+  <view class="action-buttons">
+    <button type="primary" bindtap="generateResume">生成简历预览</button>
+  </view>
+  <view class="footer-links">
+  <text class="link" bindtap="openUserAgreement">用户服务协议</text>
+  <text class="divider">|</text>
+  <text class="link" bindtap="openPrivacyPolicy">隐私政策</text>
+</view>
+</view>

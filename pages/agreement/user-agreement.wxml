@@ -1,0 +1,37 @@
+<view class="agreement-container">
+  <view class="title">用户服务协议</view>
+  
+  <view class="content">
+    <view class="section">
+      <view class="section-title">一、服务说明</view>
+      <text class="text">欢迎使用我们的简历制作小程序。本协议是您与本小程序之间关于使用服务的法律协议。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">二、服务内容</view>
+      <text class="text">本小程序为用户提供在线简历制作、编辑、保存和导出服务。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">三、用户权利与义务</view>
+      <text class="text">1. 您有权使用本小程序提供的所有功能；</text>
+      <text class="text">2. 您应确保填写的信息真实、准确；</text>
+      <text class="text">3. 您不得利用本服务从事违法违规活动。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">四、知识产权</view>
+      <text class="text">您创建的简历内容归您所有，本小程序仅提供技术服务。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">五、免责声明</view>
+      <text class="text">因不可抗力导致的服务中断，本小程序不承担责任。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">六、协议变更</view>
+      <text class="text">我们有权随时修改本协议，修改后的协议将在小程序内公布。</text>
+    </view>
+  </view>
+</view>

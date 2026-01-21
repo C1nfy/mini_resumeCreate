@@ -1,0 +1,104 @@
+<view class="preview-container">
+  <view class="resume">
+    <!-- 简历头部 -->
+    <view class="header" style="background: linear-gradient(135deg, {{colors.primary}}dd 0%, {{colors.secondary}}dd 100%);">
+      <view class="name">{{basic.name}}</view>
+      <view class="position">{{basic.position}}</view>
+      <view class="contact-info">
+        <text>📱 {{basic.phone}}</text>
+        <text>📧 {{basic.email}}</text>
+        <text>💼 工作年限: {{basic.workYears}}</text>
+        <text>🎓 {{basic.education}}</text>
+      </view>
+    </view>
+
+    <!-- 简历内容 -->
+    <view class="content">
+      <!-- 核心技能 -->
+      <view wx:if="{{skills.length > 0}}" class="section">
+        <view class="section-title" style="color: {{colors.primary}}; border-color: {{colors.secondary}};">核心技能</view>
+        <view wx:for="{{skills}}" wx:key="id" class="skill-category">
+          <view class="skill-category-title" style="color: {{colors.primary}};">{{item.category}}</view>
+          <view wx:for="{{item.skills}}" wx:for-item="skill" wx:key="index" class="skill-item-text">
+            <text class="skill-name-bold">{{skill.name}}:</text> {{skill.desc}}
+          </view>
+        </view>
+      </view>
+
+      <!-- 工作经历 -->
+      <view wx:if="{{experiences.length > 0}}" class="section">
+        <view class="section-title" style="color: {{colors.primary}}; border-color: {{colors.secondary}};">工作经历</view>
+        <view wx:for="{{experiences}}" wx:key="id" class="experience-item" style="background: {{colors.background}}66; border-color: {{colors.background}};">
+          <view class="exp-header" style="border-color: {{colors.secondary}}80;">
+            <view>
+              <text class="company" style="color: {{colors.primary}};">{{item.company}}</text>
+              <text class="exp-position" style="color: {{colors.secondary}};"> | {{item.position}}</text>
+            </view>
+            <view class="duration">{{item.duration}}</view>
+          </view>
+
+          <!-- 项目列表 -->
+          <view wx:for="{{item.projects}}" wx:for-item="proj" wx:key="index" class="project-content">
+            <view wx:if="{{proj.name}}" class="project-name" style="color: {{colors.primary}};">📱 {{proj.name}}</view>
+
+            <view wx:if="{{proj.type || proj.business}}" class="project-info">
+              <text wx:if="{{proj.type}}"><text class="info-label">项目类型:</text>{{proj.type}}\n</text>
+              <text wx:if="{{proj.business}}"><text class="info-label">负责业务:</text>{{proj.business}}</text>
+            </view>
+
+            <!-- 工作职责 -->
+            <view wx:if="{{proj.duties && proj.duties.length > 0}}" class="duties-section">
+              <view class="duties-title">工作职责:</view>
+              <view wx:for="{{proj.duties}}" wx:for-item="duty" wx:key="index" class="duty-item">
+                <text class="bullet">• </text>{{duty}}
+              </view>
+            </view>
+
+            <!-- 项目成果 -->
+            <view wx:if="{{proj.achievement}}" class="achievement" style="background: {{colors.background}}80; border-color: {{colors.accent}};">
+              <text class="achievement-icon">📊 </text>
+              <text class="achievement-label">项目成果:</text>
+              <text>{{proj.achievement}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 教育背景 -->
+      <view class="section">
+        <view class="section-title" style="color: {{colors.primary}}; border-color: {{colors.secondary}};">教育背景</view>
+        <view class="education-item">
+          <view class="edu-left">
+            <text class="edu-school">{{education.school}}</text>
+            <text> | {{education.degree}}</text>
+          </view>
+          <view class="edu-time">{{education.time}}</view>
+        </view>
+      </view>
+
+      <!-- 专业证书 -->
+      <view wx:if="{{certificates}}" class="section">
+        <view class="section-title" style="color: {{colors.primary}}; border-color: {{colors.secondary}};">专业证书</view>
+        <text class="certificates-text">{{certificates}}</text>
+      </view>
+
+      <!-- 个人评价 -->
+      <view wx:if="{{summaries.length > 0}}" class="section">
+        <view class="section-title" style="color: {{colors.primary}}; border-color: {{colors.secondary}};">个人评价</view>
+        <view class="summary-section" style="background: {{colors.background}}66; border-color: {{colors.background}};">
+          <view wx:for="{{summaries}}" wx:key="id" class="summary-item" style="color: {{colors.secondary}};">
+            <text class="summary-bullet">◆ </text>
+            <text class="summary-title">{{item.title}}:</text>
+            <text class="summary-content">{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="action-bar">
+    <button type="default" bindtap="backToEdit">返回编辑</button>
+    <button type="primary" bindtap="saveImage">保存图片</button>
+  </view>
+</view>pw

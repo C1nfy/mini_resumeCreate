@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "DIY简历",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "agreement-dialog": "/pages/agreement-dialog"
+  }
+}

@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bb0d6f22-466e-4830-aead-c21dbceb4f21" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/mini_createResume.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/index/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/index/index.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/index/index.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/index/index.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/preview/preview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/preview/preview.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/preview/preview.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/preview/preview.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +27,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "C1nfy"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/C1nfy/mini_resumeCreate",
+    "accountId": "9c00f76d-a2a1-48f6-bf2f-b86a9e932d73"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6
 }]]></component>
   <component name="ProjectId" id="38H2YGKAPJGOey56PhklmL7ijWv" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

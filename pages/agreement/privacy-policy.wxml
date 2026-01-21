@@ -1,0 +1,60 @@
+<view class="agreement-container">
+  <view class="title">隐私政策</view>
+  
+  <view class="content">
+    <view class="section">
+      <view class="section-title">引言</view>
+      <text class="text">我们重视您的隐私保护。本政策详细说明我们如何收集、使用、存储和保护您的个人信息。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">一、我们收集哪些信息</view>
+      <text class="text">1. 基本信息：姓名、性别、出生日期、联系电话、电子邮箱；</text>
+      <text class="text">2. 教育信息：学校名称、专业、学历、在校时间；</text>
+      <text class="text">3. 工作信息：公司名称、职位、工作时间、工作描述；</text>
+      <text class="text">4. 技能信息：专业技能、获得证书、项目经历等。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">二、信息收集的目的和用途</view>
+      <text class="text">1. 提供简历制作、编辑、预览功能；</text>
+      <text class="text">2. 保存您的简历数据；</text>
+      <text class="text">3. 提供简历导出和分享服务；</text>
+      <text class="text">4. 改进我们的服务质量。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">三、信息的存储和保护</view>
+      <text class="text">1. 您的信息存储在微信云服务器中，采用加密技术保护；</text>
+      <text class="text">2. 我们不会将您的个人信息出售或出租给任何第三方；</text>
+      <text class="text">3. 仅在法律要求的情况下才会披露您的信息。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">四、您的权利</view>
+      <text class="text">1. 您可以随时查看、修改您的个人信息；</text>
+      <text class="text">2. 您可以删除您的简历数据；</text>
+      <text class="text">3. 您可以注销账号并清除所有数据。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">五、Cookie和类似技术</view>
+      <text class="text">我们使用本地存储技术保存您的登录状态和偏好设置。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">六、未成年人保护</view>
+      <text class="text">我们不会故意收集14岁以下未成年人的个人信息。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">七、政策更新</view>
+      <text class="text">我们可能会不定期更新本隐私政策，更新后会在小程序内通知您。</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">八、联系我们</view>
+      <text class="text">如您对本隐私政策有任何疑问，请通过小程序内的反馈功能联系我们。</text>
+    </view>
+  </view>
+</view>

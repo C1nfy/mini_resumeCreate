@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/preview/preview",
+    "pages/agreement/user-agreement",
+    "pages/agreement/privacy-policy"
+  ],
+  "window": {
+    "navigationBarTitleText": "智能简历生成器",
+    "navigationBarBackgroundColor": "#607052",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f0f2f5"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
